@@ -15,8 +15,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from routers import router
+from core import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/', include((router.urls, 'phredcrud'), namespace='phredcrud'))
+    path("admin/", admin.site.urls),
+    path("api/", include((router.urls, "phredcrud"), namespace="phredcrud")),
+    path("export/", views.getfile),
 ]
